@@ -11,14 +11,22 @@ class IAppBVT(unittest.TestCase):
 
     def setUp(self):
         desired_caps = {}
-        appium_server_url = config['appium_server_url']
-        desired_caps['platformName'] = config['desired_caps']['platformName']
-        desired_caps['udid'] = config['desired_caps']['udid']
-        desired_caps['deviceName'] = config['desired_caps']['deviceName']
-        desired_caps['appPackage'] = config['desired_caps']['appPackage']
-        desired_caps['appActivity'] = config['desired_caps']['appActivity']
-        desired_caps['automationName'] = config['desired_caps']['automationName']
-        desired_caps['noReset'] = config['desired_caps']['noReset']
+        # appium_server_url = config['appium_server_url']
+        appium_server_url = "http://127.0.0.1:4723/wd/hub"
+        # desired_caps['platformName'] = config['desired_caps']['platformName']
+        desired_caps['platformName'] = "Android"
+        # desired_caps['udid'] = config['desired_caps']['udid']
+
+        # desired_caps['deviceName'] = config['desired_caps']['deviceName']
+        desired_caps['deviceName'] = "127.0.0.1:7555"
+        # desired_caps['appPackage'] = config['desired_caps']['appPackage']
+        desired_caps['appPackage'] = "com.appsflyer.androidsampleapp"
+        # desired_caps['appActivity'] = config['desired_caps']['appActivity']
+        desired_caps['appActivity'] = ".MainActivity"
+        # desired_caps['automationName'] = config['desired_caps']['automationName']
+        desired_caps['automationName'] = "uiautomator2"
+        # desired_caps['noReset'] = config['desired_caps']['noReset']
+        desired_caps['noReset'] = False
 
         self.driver = webdriver.Remote(appium_server_url, desired_caps)
 
